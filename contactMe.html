@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/nav.css" />
+    <link rel="stylesheet" href="./assets/css/contactMe.css" />
+    <title>Contact Me</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="nav-left">
+        <ul>
+          <li><img src="./assets/img/logo.png" alt="logo-error" /></li>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="#">My Project</a></li>
+        </ul>
+      </div>
+
+      <div class="nav-right">
+        <button>
+          <a class="active" href="./contactMe.html">Contact Me</a>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Countainer -->
+    <div class="countainer">
+      <div class="contact-me">
+        <h2>GET IN TOUCH</h2>
+        <form action="">
+          <label for="name">Name</label>
+          <input type="text" id="name" />
+          <label for="email">Email</label>
+          <input type="text" id="email" />
+          <label for="phoneNumber">Phone Number</label>
+          <input type="phone" id="phoneNumber" />
+          <label for="subject">Subject</label>
+          <select name="subject" id="subject">
+            <option hidden></option>
+            <option value="frontend">Frontend Developer</option>
+            <option value="backend">Backend Developer</option>
+            <option value="fullstack">Fullstack Developer</option>
+          </select>
+          <label for="massage">Youre Massage</label>
+          <textarea name="massage" id="massage"></textarea>
+          <div class="submit">
+            <button type="submit" onclick="submitInputContact()">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="./assets/js/contact.js"></script>
+  </body>
+</html>
