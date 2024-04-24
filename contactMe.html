@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/nav.css" />
     <link rel="stylesheet" href="./assets/css/contactMe.css" />
+    <script
+      src="https://kit.fontawesome.com/d5ff415d51.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Contact Me</title>
   </head>
   <body>
@@ -13,17 +17,28 @@
       <div class="nav-left">
         <ul>
           <li><img src="./assets/img/logo.png" alt="logo-error" /></li>
-          <li><a href="./index.html">Home</a></li>
-          <li><a href="./myProject.html">My Project</a></li>
+          <li><a class="nav-link active" href="./index.html">Home</a></li>
+          <li><a class="nav-link" href="./myProject.html">My Project</a></li>
         </ul>
       </div>
 
       <div class="nav-right">
-        <button>
-          <a class="active" href="./contactMe.html">Contact Me</a>
+        <button><a href="./contactMe.html">Contact Me</a></button>
+      </div>
+
+      <button id="hamburger-button" onclick="buttonHamburger()">
+        <i class="fa-solid fa-bars fa-2x"></i>
+      </button>
+    </nav>
+    <div class="hamburger-bars hide" id="hamburger-bars">
+      <div class="countHam">
+        <a href="index.html" class="hamburger active">Home</a>
+        <a href="./myProject.html" class="hamburger">My Project</a>
+        <button class="btnContact">
+          <a href="./contactMe.html" class="hamburger">Contact Me</a>
         </button>
       </div>
-    </nav>
+    </div>
 
     <!-- Countainer -->
     <div class="countainer">
@@ -52,5 +67,6 @@
       </div>
     </div>
     <script src="./assets/js/contact.js"></script>
+    <script src="./assets/js/nav.js"></script>
   </body>
 </html>

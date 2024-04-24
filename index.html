@@ -15,15 +15,28 @@
       <div class="nav-left">
         <ul>
           <li><img src="./assets/img/logo.png" alt="logo-error"></li>
-          <li><a class="active" href="./index.html">Home</a></li>
-          <li><a href="./myProject.html">My Project</a></li>
+          <li><a class="nav-link active" href="./index.html">Home</a></li>
+          <li><a class="nav-link"href="./myProject.html">My Project</a></li>
         </ul>
       </div>
 
       <div class="nav-right">
       <button><a href="./contactMe.html">Contact Me</a></button>
       </div>
+
+      <button
+            id="hamburger-button"
+            onclick="buttonHamburger()"
+          ><i class="fa-solid fa-bars fa-2x"></i>
+</button>
     </nav>
+    <div class="hamburger-bars hide" id="hamburger-bars" >
+      <div class="countHam">
+        <a href="index.html" class="hamburger active">Home</a>
+        <a href="./myProject.html" class="hamburger">My Project</a>
+        <button class="btnContact"><a href="./contactMe.html" class="hamburger">Contact Me</a></button>
+      </div>
+    </div>
 
 
     <!-- Countainer -->
@@ -40,8 +53,8 @@
           repellendus, id eius repudiandae aspernatur maiores, deleniti cum
           mollitia dolores?
         </p>
-        <p>
-          <a href="./contactMe.html">
+        <p class="buttonContent">
+          <a class="contactLink" href="./contactMe.html">
           <button class="contactCard">
             <div class="contact">contact</div>
           </button>
@@ -76,5 +89,6 @@
         </div>
       </div>
     </div>
+    <script src="./assets/js/nav.js"></script>
   </body>
 </html>

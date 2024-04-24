@@ -14,7 +14,8 @@ nav {
   display: flex;
   align-items: center;
   list-style: none;
-  margin: 10px 40px;
+  margin: 10px 0px;
+  padding: 0;
 }
 
 .nav-left ul li {
@@ -51,4 +52,75 @@ nav {
 .nav-right button a {
   color: white;
   text-decoration: none;
+}
+
+.hamburger {
+  padding: 0;
+  margin: 0;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+#hamburger-button {
+  display: none;
+}
+
+.hide {
+  display: none !important;
+}
+
+#hamburger-bars {
+  display: none;
+}
+
+.hamburger-bars {
+  display: flex;
+  flex-direction: column;
+  background-color: #c5c5c5;
+  text-align: center;
+}
+
+@media only screen and (max-width: 845px) {
+  .nav-link {
+    display: none;
+  }
+
+  .nav-right {
+    display: none;
+  }
+
+  #hamburger-button {
+    display: block;
+    margin-right: 50px;
+    border: none;
+  }
+
+  #hamburger-bars {
+    display: block;
+  }
+
+  .countHam {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .countHam a {
+    width: 30%;
+    margin: 20px 0px;
+    border: none;
+  }
+
+  .btnContact {
+    border: none;
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+    padding: 10px 30px;
+    margin: 20px 0px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+  }
 }
