@@ -80,10 +80,10 @@ function renderProject() {
           <div class="judul"><a href="detailProject.html?index=${index}">${
       project.projectName
     }</a></div>
-          <div class="durasi">${
+          <div class="durasi">${getDisDate(
             project.startDate,
             project.endDate
-          }</div>
+          )}</div>
           <p>${project.description}</p>
           <div class="technologi">
           ${nodeSvg}
@@ -102,31 +102,31 @@ function renderProject() {
 }
 
 // Function untuk mengatur lama atau jarak hari, bulan, tahun sesuai yg diinputkan
-// function getDisDate(startDate, endDate) {
-//   const diffInMs = Math.abs(endDate - startDate);
-//   const days = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
-//   const months = Math.floor(days / 30);
-//   const years = Math.floor(months / 12);
+function getDisDate(startDate, endDate) {
+  const diffInMs = Math.abs(endDate - startDate);
+  const days = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+  const months = Math.floor(days / 30);
+  const years = Math.floor(months / 12);
 
-//   if (days === 1) {
-//     return "1 day";
-//   }
+  if (days === 1) {
+    return "1 day";
+  }
 
-//   if (days < 30) {
-//     return days + " days";
-//   }
+  if (days < 30) {
+    return days + " days";
+  }
 
-//   if (months === 1) {
-//     return "1 month";
-//   }
+  if (months === 1) {
+    return "1 month";
+  }
 
-//   if (months < 12) {
-//     return months + " months";
-//   }
+  if (months < 12) {
+    return months + " months";
+  }
 
-//   if (years === 1) {
-//     return "1 year";
-//   }
+  if (years === 1) {
+    return "1 year";
+  }
 
-//   return years + " years";
-// }
+  return years + " years";
+}
