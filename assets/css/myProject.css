@@ -1,0 +1,225 @@
+*,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #d7d7d7;
+}
+
+.countainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.countainer h2 {
+  text-align: center;
+  margin: 50px 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+}
+
+form label {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+form input {
+  background-color: white;
+  padding: 8px 6px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+form .date label {
+  margin: 5px 0;
+  margin-top: 10px;
+}
+
+form .date {
+  display: flex;
+}
+
+form .startDate {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-right: 10px;
+}
+
+form .endDate {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+form select {
+  padding: 8px 6px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+form textarea {
+  padding: 8px 6px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+  resize: none;
+  height: 50px;
+}
+
+form .techAwal,
+.techAkhir {
+  display: flex;
+}
+
+form .Tech1,
+.Tech2,
+.Tech3,
+.Tech4,
+.Tech5 {
+  width: 50%;
+}
+
+form input#nodeJs {
+  margin-right: 5px;
+}
+
+form input#nextJs {
+  margin-right: 5px;
+}
+
+form input#reactJs {
+  margin-right: 5px;
+}
+
+form input#typeScript {
+  margin-right: 5px;
+}
+
+input#file {
+  padding: 0;
+  border-radius: 5px;
+}
+
+input[type="file"]::file-selector-button {
+  border-radius: 5px;
+  border-style: hidden;
+  background-color: #d7d7d7;
+  cursor: pointer;
+}
+
+form .submit {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 50px;
+}
+
+.submit button {
+  padding: 5px 30px;
+  border: none;
+  border-radius: 15px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+/* ListProject */
+
+body h2 {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.myProject {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 60px;
+  width: 100%;
+  height: 100%;
+}
+
+.cardContent {
+  margin: 15px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+}
+
+.cardContent img {
+  margin: 7px;
+  border-radius: 5px;
+}
+
+.isi {
+  flex-wrap: wrap;
+  margin: 7px;
+}
+
+.isi .judul {
+  text-wrap: wrap;
+  font-weight: 700;
+}
+
+.judul a {
+  text-decoration: none;
+  color: black;
+}
+
+.isi .durasi,
+p {
+  text-wrap: wrap;
+  font-size: small;
+}
+
+.isi p {
+  text-wrap: wrap;
+  margin: 20px 0;
+}
+
+.isi .technologi {
+  text-wrap: wrap;
+  margin: 20px 0;
+}
+
+.technologi img {
+  width: 20px;
+  height: 20px;
+}
+
+.technologi img.icon-project {
+  margin: 5px;
+}
+
+.isi .button {
+  display: flex;
+}
+
+.button button {
+  width: 50%;
+  color: cornsilk;
+  background-color: black;
+  border-radius: 5px;
+  border: none;
+  margin: 2px;
+  cursor: pointer;
+}

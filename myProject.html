@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/nav.css" />
+    <link rel="stylesheet" href="./assets/css/myProject.css" />
+    <script
+      src="https://kit.fontawesome.com/b9d0ad08e2.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>My Project</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="nav-left">
+        <ul>
+          <li><img src="./assets/img/logo.png" alt="logo-error" /></li>
+          <li><a href="./index.html">Home</a></li>
+          <li><a class="active" href="./myProject.html">My Project</a></li>
+        </ul>
+      </div>
+
+      <div class="nav-right">
+        <button>
+          <a href="./contactMe.html">Contact Me</a>
+        </button>
+      </div>
+    </nav>
+
+    <!-- inputItems -->
+    <div class="countainer">
+      <h2>Add My Project</h2>
+      <form onsubmit="">
+        <label for="projectName">Project Name</label>
+        <input type="text" id="projectName" />
+        <div class="date">
+          <div class="startDate">
+            <label for="startDate">Start Date</label>
+            <input type="date" id="startDate" />
+          </div>
+          <div class="endDate">
+            <label for="endDate">End Date</label>
+            <input type="date" id="endDate" />
+          </div>
+        </div>
+        <label for="description">Description</label>
+        <textarea
+          name="description"
+          id="description"
+          cols="30"
+          rows="10"
+        ></textarea>
+        <label for="technologi">Technologies</label>
+        <div class="techAwal">
+          <div class="Tech1">
+            <input type="checkbox" name="nodeJs" id="nodeJs" value="nodeJs" />
+            <label for="nodeJs">Node Js</label>
+          </div>
+          <div class="Tech2">
+            <input type="checkbox" name="nextJs" id="nextJs" value="nextJs" />
+            <label for="nextJs">Next Js</label>
+          </div>
+        </div>
+        <div class="techAkhir">
+          <div class="Tech2">
+            <input
+              type="checkbox"
+              name="reactJs"
+              id="reactJs"
+              value="reactJs"
+            />
+            <label for="reactJs">React Js</label>
+          </div>
+          <div class="Tech4">
+            <input
+              type="checkbox"
+              name="typeScript"
+              id="typeScript"
+              value="typeScript"
+            />
+            <label for="typeScript">TypeScript</label>
+          </div>
+        </div>
+        <label for="projectName">Upload Image</label>
+        <input type="file" name="file" id="inputFile" />
+        <div class="submit">
+          <button type="submit" onclick="submitInputProject(event)">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- listItem -->
+    <h2>List Project</h2>
+    <div class="myProject" id="myProject">
+      <div class="cardContent">
+        <img src="./assets/img/images.jpeg" alt="" />
+        <div class="isi">
+          <div class="judul"><a href="detailProject.html">Judul</a></div>
+          <div class="durasi">durasi</div>
+          <p>isi</p>
+          <div class="technologi">
+            <img src="./assets/img/icons/node.svg" class="icon-project" />
+            <img src="./assets/img/icons/next.svg" class="icon-project" />
+            <img src="./assets/img/icons/react.svg" class="icon-project" />
+            <img src="./assets/img/icons/type.svg" class="icon-project" />
+          </div>
+          <div class="button">
+            <button>Edit</button>
+            <button>Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./assets/js/myProject.js"></script>
+  </body>
+</html>

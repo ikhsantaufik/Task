@@ -30,11 +30,17 @@ nav {
   font-weight: bold;
 }
 
+.nav-right .active {
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}
+
 .nav-right {
   margin: 10px 100px;
 }
 
 .nav-right button {
+  border: none;
   color: white;
   background-color: black;
   padding: 5px 15px;

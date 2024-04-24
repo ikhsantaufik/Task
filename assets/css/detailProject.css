@@ -1,0 +1,50 @@
+.countainer {
+  padding: 70px;
+  padding-top: 20px;
+  background-color: rgb(205, 213, 216);
+}
+
+.countainer h1 {
+  text-align: center;
+}
+
+.countainer .cardAtas {
+  display: flex;
+}
+
+.cardAtas img {
+  width: 50%;
+}
+
+.cardAtas .tech {
+  margin: 20px;
+  margin-left: 40px;
+}
+
+.tech .duration {
+  margin-top: 10px;
+}
+
+.countainer p {
+  margin-top: 50px;
+}
+
+.techAwal,
+.techAkhir {
+  display: flex;
+}
+
+.Tech1,
+.Tech2,
+.Tech3,
+.Tech4,
+.Tech5 {
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+
+.tech img {
+  width: 20px;
+  height: 30px;
+}

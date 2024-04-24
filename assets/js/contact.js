@@ -4,6 +4,7 @@ function submitInputContact() {
   let phone = document.getElementById("phoneNumber").value;
   let subject = document.getElementById("subject").value;
   let message = document.getElementById("massage").value;
+  let body = `Hallo Saya ${name} apakah saya bisa ${message} tolong hubungi saya ${phone}`;
 
   if (name == "") {
     return alert("please entered your name!");
@@ -17,20 +18,26 @@ function submitInputContact() {
     return alert("please entered your message!");
   }
 
-  const data = {
-    name,
-    email,
-    phone,
-    subject,
-    message,
-  };
-
   const yourEmail = "ikhsanp34@gmail.com";
 
   let a = document.createElement("a");
-  a.href = `mailto:${yourEmail}?subject=${subject}&body= Halo mas nama saya, ${name} saya ingin ${message}. bisakah anda menghubungi saya ${phone}`;
-
+  a.href = `https://mail.google.com/mail?view=cm&fs=1&to=${yourEmail}&su=${subject}&body=${body}`;
   a.click();
-
-  console.log(data);
 }
+
+const form = document.getElementById("contactForm");
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  submitInputContact();
+});
+
+// Share WA
+
+// function submitInputWA() {
+//   const yourNumber = "+6282373210827";
+
+//   window.open(
+//     `https://wa.me/${yourNumber}?text=I%27m%20api%20msg%20hello%20${name}%20friend%20${message}`,
+//     "_blank"
+//   );
+// }
