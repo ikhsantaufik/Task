@@ -6,6 +6,12 @@
     <link rel="stylesheet" href="./assets/css/nav.css" />
     <link rel="stylesheet" href="./assets/css/testimonial.css" />
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
@@ -18,7 +24,7 @@
           <li><img src="./assets/img/logo.png" alt="logo-error" /></li>
           <li><a class="nav-link" href="./index.html">Home</a></li>
           <li>
-            <a class="nav-link" href="./myProject.html">My Project</a>
+            <a class="nav-link" href="./myProject.html">Add Project</a>
           </li>
           <li>
             <a class="nav-link active" href="./testimonials.html"
@@ -29,7 +35,9 @@
       </div>
 
       <div class="nav-right">
-        <button><a href="./contactMe.html">Contact Me</a></button>
+        <button type="button" class="btn btn-dark">
+          <a href="./contactMe.html">Contact Me</a>
+        </button>
       </div>
 
       <button id="hamburger-button" onclick="buttonHamburger()">
@@ -39,9 +47,9 @@
     <div class="hamburger-bars hide" id="hamburger-bars">
       <div class="countHam">
         <a href="index.html" class="hamburger">Home</a>
-        <a href="./myProject.html" class="hamburger">My Project</a>
+        <a href="./myProject.html" class="hamburger">Add Project</a>
         <a href="./testimonials.html" class="hamburger active">Testimonials</a>
-        <button class="btnContact">
+        <button type="button" class="btn btn-dark">
           <a href="./contactMe.html" class="hamburger">Contact Me</a>
         </button>
       </div>
@@ -51,20 +59,48 @@
       <h1>My Testimonials</h1>
       <div class="container-rating">
         <div class="rating">
-          <button onclick="allTestimonial()" class="rating-btn">All</button>
-          <button onclick="filterTestimonials(1)" class="rating-btn">
-            1 <i class="fa-solid fa-star"></i>
+          <button
+            type="button"
+            class="btn btn-dark m-2 border-0"
+            style="padding: 6px 44px !important"
+            onclick="allTestimonial()"
+          >
+            All <i class="fa-solid fa-star"></i>
           </button>
-          <button onclick="filterTestimonials(2)" class="rating-btn">
+          <button
+            type="button"
+            class="btn btn-dark m-2 px-5 border-0"
+            onclick="filterTestimonials(1)"
+          >
+            1
+            <i class="fa-solid fa-star"></i>
+          </button>
+          <button
+            type="button"
+            class="btn btn-dark m-2 px-5 border-0"
+            onclick="filterTestimonials(2)"
+          >
             2 <i class="fa-solid fa-star"></i>
           </button>
-          <button onclick="filterTestimonials(3)" class="rating-btn">
+          <button
+            type="button"
+            class="btn btn-dark m-2 px-5 border-0"
+            onclick="filterTestimonials(3)"
+          >
             3 <i class="fa-solid fa-star"></i>
           </button>
-          <button onclick="filterTestimonials(4)" class="rating-btn">
+          <button
+            type="button"
+            class="btn btn-dark m-2 px-5 border-0"
+            onclick="filterTestimonials(4)"
+          >
             4 <i class="fa-solid fa-star"></i>
           </button>
-          <button onclick="filterTestimonials(5)" class="rating-btn">
+          <button
+            type="button"
+            class="btn btn-dark m-2 px-5 border-0"
+            onclick="filterTestimonials(5)"
+          >
             5 <i class="fa-solid fa-star"></i>
           </button>
         </div>
@@ -72,6 +108,11 @@
 
       <section class="testimonials" id="testimonials"></section>
     </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
     <script src="./assets/js/nav.js"></script>
     <script src="./assets/js/asyncPromAjax.js"></script>
   </body>

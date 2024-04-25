@@ -68,16 +68,6 @@ body {
   display: flex;
 }
 
-.rating-btn {
-  margin: 20px;
-  padding: 0px 20px;
-  font-size: 20px;
-  font-weight: bold;
-  background-color: rgb(0, 0, 0);
-  color: white;
-  cursor: pointer;
-}
-
 @media only screen and (max-width: 900px) {
   .testimonial {
     width: 40%;
