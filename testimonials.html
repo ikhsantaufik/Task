@@ -16,10 +16,14 @@
       <div class="nav-left">
         <ul>
           <li><img src="./assets/img/logo.png" alt="logo-error" /></li>
-          <li><a class="nav-link active" href="./index.html">Home</a></li>
-          <li><a class="nav-link" href="./myProject.html">My Project</a></li>
+          <li><a class="nav-link" href="./index.html">Home</a></li>
           <li>
-            <a class="nav-link" href="./testimonials.html">Testimonials</a>
+            <a class="nav-link" href="./myProject.html">My Project</a>
+          </li>
+          <li>
+            <a class="nav-link active" href="./testimonials.html"
+              >Testimonials</a
+            >
           </li>
         </ul>
       </div>
@@ -34,8 +38,9 @@
     </nav>
     <div class="hamburger-bars hide" id="hamburger-bars">
       <div class="countHam">
-        <a href="index.html" class="hamburger active">Home</a>
+        <a href="index.html" class="hamburger">Home</a>
         <a href="./myProject.html" class="hamburger">My Project</a>
+        <a href="./testimonials.html" class="hamburger active">Testimonials</a>
         <button class="btnContact">
           <a href="./contactMe.html" class="hamburger">Contact Me</a>
         </button>
@@ -47,19 +52,19 @@
       <div class="container-rating">
         <div class="rating">
           <button onclick="allTestimonial()" class="rating-btn">All</button>
-          <button onclick="filterTestimonial(1)" class="rating-btn">
+          <button onclick="filterTestimonials(1)" class="rating-btn">
             1 <i class="fa-solid fa-star"></i>
           </button>
-          <button onclick="filterTestimonial(2)" class="rating-btn">
+          <button onclick="filterTestimonials(2)" class="rating-btn">
             2 <i class="fa-solid fa-star"></i>
           </button>
-          <button onclick="filterTestimonial(3)" class="rating-btn">
+          <button onclick="filterTestimonials(3)" class="rating-btn">
             3 <i class="fa-solid fa-star"></i>
           </button>
-          <button onclick="filterTestimonial(4)" class="rating-btn">
+          <button onclick="filterTestimonials(4)" class="rating-btn">
             4 <i class="fa-solid fa-star"></i>
           </button>
-          <button onclick="filterTestimonial(5)" class="rating-btn">
+          <button onclick="filterTestimonials(5)" class="rating-btn">
             5 <i class="fa-solid fa-star"></i>
           </button>
         </div>
@@ -68,6 +73,6 @@
       <section class="testimonials" id="testimonials"></section>
     </div>
     <script src="./assets/js/nav.js"></script>
-    <script src="./assets/js/testimonials.js"></script>
+    <script src="./assets/js/asyncPromAjax.js"></script>
   </body>
 </html>

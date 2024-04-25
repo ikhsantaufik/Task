@@ -11,6 +11,11 @@ body {
   background-color: #d7d7d7;
 }
 
+.countHam .active {
+  color: rgb(255, 255, 255) !important;
+  font-weight: bold;
+}
+
 /* Countainer */
 .countainer {
   display: flex;
