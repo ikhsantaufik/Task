@@ -5,14 +5,30 @@ function submitInputProject(event) {
   event.preventDefault();
 
   let projectName = document.getElementById("projectName").value;
-  let startDate = new Date(document.getElementById("startDate").value);
-  let endDate = new Date(document.getElementById("endDate").value);
+  let startDate = document.getElementById("startDate").value;
+  let endDate = document.getElementById("endDate").value;
+
+  let startDatePart = startDate.split("/");
+  let endDatePart = endDate.split("/");
+
+  let formatStartDate =
+    startDatePart[2] + "-" + startDatePart[1] + "-" + startDatePart[0];
+  let formatEndDate =
+    endDatePart[2] + "-" + endDatePart[1] + "-" + endDatePart[0];
+  let newStartDate = new Date(formatStartDate);
+  let newEndtDate = new Date(formatEndDate);
+
+  console.log(startDatePart[0]);
+  console.log(formatEndDate);
+  console.log(newStartDate);
+  console.log(newEndtDate);
+
   let description = document.getElementById("description").value;
   let nodeJs = document.getElementById("nodeJs").checked;
   let nextJs = document.getElementById("nextJs").checked;
   let reactJs = document.getElementById("reactJs").checked;
   let typeScript = document.getElementById("typeScript").checked;
-  let Image = document.getElementById("inputFile").files;
+  let Image = document.getElementById("inputGroupFile04").files;
   let ImageURL = URL.createObjectURL(Image[0]);
 
   if (projectName == "") {
@@ -42,14 +58,21 @@ function submitInputProject(event) {
 
   // localStorage.setItem("data", JSON.stringify(dataProjects));
 
-  // Looping hasil inputan
-  renderProject();
+  renderProject()
+  // fetch("addProjectPost", {
+  //   method: POST,
+  // });
 }
 
+function getDataFormLocal() {
+  return localStorage.getItem("data");
+}
 // Function untuk looping halaman
 function renderProject() {
   document.getElementById("myProject").innerHTML = "";
-  dataProjects.forEach((project, index) => {
+  // const projectsJson = getDataFormLocal();
+  // const projects = JSON.parse(projectsJson);
+  projects.forEach((project, index) => {
     // for (let index = 0; index < dataProjects.length; index++) {
     let nodeSvg = "";
     let nextSvg = "";

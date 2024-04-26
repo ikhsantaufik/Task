@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -23,19 +22,19 @@
       <div class="nav-left">
         <ul>
           <li><img src="./assets/img/logo.png" alt="logo-error" /></li>
-          <li><a class="nav-link" href="./index.html">Home</a></li>
+          <li><a class="nav-link" href="/">Home</a></li>
           <li>
-            <a class="nav-link active" href="./myProject.html">Add Project</a>
+            <a class="nav-link active" href="/myProject">Add Project</a>
           </li>
           <li>
-            <a class="nav-link" href="./testimonials.html">Testimonials</a>
+            <a class="nav-link" href="/testimonials">Testimonials</a>
           </li>
         </ul>
       </div>
 
       <div class="nav-right">
         <button type="button" class="btn btn-dark">
-          <a href="./contactMe.html">Contact Me</a>
+          <a href="/contactMe">Contact Me</a>
         </button>
       </div>
 
@@ -45,11 +44,11 @@
     </nav>
     <div class="hamburger-bars hide" id="hamburger-bars">
       <div class="countHam">
-        <a href="index.html" class="hamburger">Home</a>
-        <a href="./myProject.html" class="hamburger active">Add Project</a>
-        <a href="./testimonials.html" class="hamburger">Testimonials</a>
+        <a href="/" class="hamburger">Home</a>
+        <a href="/myProject" class="hamburger active">Add Project</a>
+        <a href="/testimonials" class="hamburger">Testimonials</a>
         <button type="button" class="btn btn-dark">
-          <a href="./contactMe.html" class="hamburger">Contact Me</a>
+          <a href="/contactMe" class="hamburger">Contact Me</a>
         </button>
       </div>
     </div>
@@ -108,8 +107,18 @@
             <label for="typeScript">TypeScript</label>
           </div>
         </div>
-        <label for="projectName">Upload Image</label>
-        <input type="file" name="file" id="inputFile" />
+        <div class="input-group">
+          <input
+            type="file"
+            class="form-control"
+            name="file"
+            id="inputGroupFile04"
+            aria-describedby="inputGroupFileAddon04"
+            aria-label="Upload"
+          />
+        </div>
+        <!-- <label for="projectName">Upload Image</label>
+        <input type="file" name="file" id="inputFile" /> -->
         <div class="submit">
           <button
             type="button"
