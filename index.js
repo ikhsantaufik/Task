@@ -92,6 +92,7 @@ function updateProjectPut(req, res) {
     req.body;
   projects[id] = {
     projectName,
+    duration: formatTime.getDisDate(startDate, endDate),
     startDate,
     endDate,
     description,
@@ -102,10 +103,8 @@ function updateProjectPut(req, res) {
 }
 
 function deleteProject(req, res) {
-  console.log(projects);
   const { id } = req.params;
   projects.splice(id, 1);
-  console.log(id);
   res.redirect("/");
 }
 
