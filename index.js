@@ -21,18 +21,17 @@ app.get("/contactMe", contacMe);
 app.get("/testimonials", testimonials);
 app.get("/detailProject/:id", detailProject);
 app.get("/addProject", addProjectView);
-app.get("/myProject", myProject);
 app.get("/updateProject/:id", updateProject);
-app.delete("/myProject/:id", deleteProject);
+// app.post("/delete/:id", deleteProject);
 
-app.post("/myProject", addProjectPost);
+app.post("/", addProjectPost);
 app.post("/updateProject/:id", updateProjectPut);
-// app.delete("/myProject/:id", deleteProject);
+app.delete("/delete/:id", deleteProject);
 
 const projects = [];
 
 function home(req, res) {
-  res.render("index");
+  res.render("index", { projects });
 }
 
 function contacMe(req, res) {
@@ -52,10 +51,6 @@ function detailProject(req, res) {
 
 function addProjectView(req, res) {
   res.render("addProject");
-}
-
-function myProject(req, res) {
-  res.render("myProject", { projects });
 }
 
 function updateProject(req, res) {
@@ -89,7 +84,7 @@ function addProjectPost(req, res) {
     techbox: Array.isArray(techbox) ? techbox : [techbox],
     file: "https://cdn-u1-gnfi.imgix.net/post/large-melatih-skill-keramahan-yang-tidak-hanya-sekadar-sifat1694664260.jpg?fit=crop&crop=faces%2Centropy&lossless=true&auto=compress%2Cformat&w=730&h=486",
   });
-  res.redirect("/myProject");
+  res.redirect("/");
 }
 
 function updateProjectPut(req, res) {
@@ -101,15 +96,17 @@ function updateProjectPut(req, res) {
     endDate,
     description,
     techbox,
-    file,
+    file: "https://cdn-u1-gnfi.imgix.net/post/large-melatih-skill-keramahan-yang-tidak-hanya-sekadar-sifat1694664260.jpg?fit=crop&crop=faces%2Centropy&lossless=true&auto=compress%2Cformat&w=730&h=486",
   };
-  res.redirect("/myProject");
+  res.redirect("/");
 }
 
 function deleteProject(req, res) {
+  console.log(projects);
   const { id } = req.params;
   projects.splice(id, 1);
-  res.redirect("/myProject");
+  console.log(id);
+  res.redirect("/");
 }
 
 app.listen(port, () => {

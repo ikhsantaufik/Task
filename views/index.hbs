@@ -23,7 +23,7 @@
           <li><img src="../assets/img/logo.png" alt="logo-error" /></li>
           <li><a class="nav-link active" href="/">Home</a></li>
           <li>
-            <a class="nav-link" href="/myProject">My Project</a>
+            <a class="nav-link" href="/addProject">Add Project</a>
           </li>
           <li>
             <a class="nav-link" href="/testimonials"
@@ -44,7 +44,7 @@
     <div class="hamburger-bars hide" id="hamburger-bars">
       <div class="countHam">
         <a href="/" class="hamburger active">Home</a>
-        <a href="/myProject" class="hamburger">My Project</a>
+        <a href="/addProject" class="hamburger">Add Project</a>
         <a href="/testimonials" class="hamburger">Testimonials</a>
         <button type="button" class="btn btn-dark"><a href="/contactMe" class="hamburger">Contact Me</a></button>
       </div>
@@ -103,12 +103,46 @@
       </div>
     </div>
 
+    <!-- listItem -->
+  <a href="/addProject">
+  <div class="d-flex justify-content-end"><button type="button" class="btn btn-dark mt-5 me-5 px-5">Add Project</button>
+  </a>
+  </div>
+    <h2>List My Project</h2>
+    <div class="myProject" id="myProject">
+    {{#each projects}}
+      <div class="cardContent">
+        <img src="{{this.file}}" alt="" />
+        <div class="isi">
+          <div class="judul"><a href="/detailProject/{{@index}}">{{this.projectName}}</a></div>
+          <div class="durasi">{{this.duration}}</div>
+          <p>{{this.description}}</p>
+          <div class="technologi">
+            {{#each this.techbox}}
+            <i class="fa-brands {{this}}"></i>
+            {{/each}}
+          </div>
+          <div class="button">
+            <a href="/updateProject/{{@index}}"><button type="button" class="btn btn-dark">Edit</button></a>
+            <form onsubmit="deletePost({{@index}})">
+            <button class="btn btn-dark px-2">Delete</button>
+            </form>
+            {{!-- <form method="POST" action="/delete/{{index}}">
+            <button class="btn btn-dark px-2">Delete</button>
+            </form> --}}
+          </div>
+        </div>
+      </div>
+    {{/each }}
+    </div>
+
 
   <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script src="../assets/js/addProject.js"></script>
     <script src="../assets/js/nav.js"></script>
   </body>
 </html>
