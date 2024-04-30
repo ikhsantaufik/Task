@@ -9,6 +9,7 @@
   "author": "Ikhsan",
   "license": "ISC",
   "dependencies": {
+    "dayjs": "^1.11.11",
     "express": "^4.19.2",
     "hbs": "^4.2.0"
   }

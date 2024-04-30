@@ -43,7 +43,7 @@ nav {
 .btn {
   border: none;
   color: white;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
   padding: 5px 15px;
   border-radius: 8px;
   cursor: pointer;
@@ -52,6 +52,7 @@ nav {
 .nav-right button a {
   color: white;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .hamburger {
@@ -118,5 +119,6 @@ nav {
   }
   .btn {
     margin: 20px 0;
+    cursor: pointer;
   }
 }

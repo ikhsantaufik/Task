@@ -148,11 +148,11 @@ body h2 {
 
 .myProject {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 60px;
   width: 100%;
+  height: 100%;
 }
 
 .cardContent {
@@ -160,9 +160,10 @@ body h2 {
   width: 150px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-content: center;
   background-color: rgb(255, 255, 255);
   border-radius: 5px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
 }
 
 .cardContent img {
@@ -197,28 +198,25 @@ p {
 }
 
 .isi .technologi {
-  display: flex;
-  justify-content: center;
   text-wrap: wrap;
   margin: 20px 0;
 }
 
-.technologi i {
+.technologi img {
   width: 20px;
   height: 20px;
 }
 
-.technologi i .fa-brands {
+.technologi img.icon-project {
   margin: 5px;
 }
 
 .isi .button {
   display: flex;
-  justify-content: center;
-  width: 100%;
 }
 
 .button button {
+  width: 50%;
   color: cornsilk;
   background-color: black;
   border-radius: 5px;

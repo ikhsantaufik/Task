@@ -21,7 +21,7 @@
     <nav>
       <div class="nav-left">
         <ul>
-          <li><img src="./assets/img/logo.png" alt="logo-error" /></li>
+          <li><img src="../assets/img/logo.png" alt="logo-error" /></li>
           <li><a class="nav-link" href="/">Home</a></li>
           <li>
             <a class="nav-link active" href="/myProject">My Project</a>
@@ -55,18 +55,34 @@
 
     <!-- inputItems -->
     <div class="countainer">
-      <h2>Add My Project</h2>
-      <form method="POST" action="/myProject">
+      <h2>Update Project</h2>
+      <form method="POST" action="/updateProject/{{projects.id}}">
+        <input value="{{projects.id}}" name="id" hidden />
         <label for="projectName">Project Name</label>
-        <input type="text" id="projectName" name="projectName" />
+        <input
+          type="text"
+          id="projectName"
+          name="projectName"
+          value="{{projects.projectName}}"
+        />
         <div class="date">
           <div class="startDate">
             <label for="startDate">Start Date</label>
-            <input type="date" id="startDate" name="startDate" />
+            <input
+              type="date"
+              id="startDate"
+              name="startDate"
+              value="{{projects.startDate}}"
+            />
           </div>
           <div class="endDate">
             <label for="endDate">End Date</label>
-            <input type="date" id="endDate" name="endDate" />
+            <input
+              type="date"
+              id="endDate"
+              name="endDate"
+              value="{{projects.endDate}}"
+            />
           </div>
         </div>
         <label for="description">Description</label>
@@ -75,7 +91,7 @@
           id="description"
           cols="30"
           rows="10"
-        ></textarea>
+        >{{projects.description}}</textarea>
         <label for="technologi">Technologies</label>
         <div class="techAwal">
           <div class="Tech1">
@@ -84,6 +100,7 @@
               name="techbox"
               id="nodeJs"
               value="fa-node-js"
+              {{projects.fa-node-js}}
             />
             <label for="nodeJs">Node Js</label>
           </div>
@@ -93,8 +110,9 @@
               name="techbox"
               id="golang"
               value="fa-golang"
+              {{projects.fa-golang}}
             />
-            <label for="golang">Golang</label>
+            <label for="nextJs">Golang</label>
           </div>
         </div>
         <div class="techAkhir">
@@ -104,6 +122,7 @@
               name="techbox"
               id="reactJs"
               value="fa-react"
+              {{projects.fa-react}}
             />
             <label for="reactJs">React Js</label>
           </div>
@@ -113,8 +132,9 @@
               name="techbox"
               id="JavaScript"
               value="fa-js"
+              {{projects.fa-js}}
             />
-            <label for="javaScript">Java Script</label>
+            <label for="typeScript">Java Script</label>
           </div>
         </div>
         <div class="input-group">
@@ -131,6 +151,7 @@
           <button type="submit" class="btn btn-dark">
             Submit
           </button>
+
         </div>
       </form>
     </div>
