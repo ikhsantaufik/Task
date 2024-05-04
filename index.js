@@ -3,6 +3,9 @@ const app = express();
 const formatTime = require("./util/formatTime.js");
 const port = 5000;
 const path = require("path");
+const config = require("./config/config.json");
+const { Sequelize, QueryTypes } = require("sequelize");
+const sequelize = new Sequelize(config.development);
 
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "./views")); // hbs dimana
@@ -30,8 +33,12 @@ app.delete("/delete/:id", deleteProject);
 
 const projects = [];
 
-function home(req, res) {
-  res.render("index", { projects });
+async function home(req, res) {
+  const query = 'SELECT * FROM "tbProjects"';
+  const data = await sequelize.query(query, { type: QueryTypes.SELECT });
+  console.log("data sukses", data);
+
+  res.render("index", { projects: data });
 }
 
 function contacMe(req, res) {
