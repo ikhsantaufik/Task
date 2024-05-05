@@ -16,20 +16,30 @@
     <div class="nav-left">
       <ul>
         <li><img src="../assets/img/logo.png" alt="logo-error" /></li>
-        <li><a class="nav-link" href="/">Home</a></li>
-        <li>
-          <a class="nav-link active" href="/addProject">Add Project</a>
-        </li>
+        <li><a class="nav-link active" href="/">Home</a></li>
         <li>
           <a class="nav-link" href="/testimonials">Testimonials</a>
         </li>
       </ul>
     </div>
 
-    <div class="nav-right">
-      <button type="button" class="btn btn-dark">
-        <a href="/contactMe">Contact Me</a>
-      </button>
+    <div class="nav-right d-flex">
+      <ul class="navbarLog">
+        {{#if isLogin}}
+          <h3>Halo, {{user.userName}}</h3>
+          <form action="/logout" method="POST">
+            <button>Logout</button>
+          </form>
+        {{else}}
+          <li>
+            <a class="nav-link" href="/register">Register</a>
+          </li>
+          <li>
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+        {{/if}}
+      </ul>
+      <button type="button" class="btn btn-dark"><a href="/contactMe">Contact Me</a></button>
     </div>
 
     <button id="hamburger-button" onclick="buttonHamburger()">
@@ -38,20 +48,29 @@
   </nav>
   <div class="hamburger-bars hide" id="hamburger-bars">
     <div class="countHam">
-      <a href="/" class="hamburger">Home</a>
-      <a href="/addProject" class="hamburger active">Add Project</a>
+      <a href="/" class="hamburger active">Home</a>
       <a href="/testimonials" class="hamburger">Testimonials</a>
-      <button type="button" class="btn btn-dark">
-        <a href="/contactMe" class="hamburger">Contact Me</a>
-      </button>
+      {{#if isLogin}}
+        <h3>Halo, {{user.userName}}</h3>
+        <form action="/logout" method="POST">
+          <button>Logout</button>
+        </form>
+      {{else}}
+        <a href="/register" class="hamburger">Register</a>
+        <a href="/login" class="hamburger">Login</a>
+      {{/if}}
+      <button type="button" class="btn btn-dark"><a
+          href="/contactMe"
+          class="hamburger"
+        >Contact Me</a></button>
     </div>
   </div>
 
   <body>
     <div class="countainer">
-      <h1>{{projects.projectName}}</h1>
+      <h1>{{projects.nameProjects}}</h1>
       <div class="cardAtas">
-        <img src="{{projects.file}}" />
+        <img src="../uploads/{{projects.file}}" />
         <div class="tech">
           <h3>Duration</h3>
           <div>

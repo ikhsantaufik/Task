@@ -23,9 +23,6 @@
           <li><img src="../assets/img/logo.png" alt="logo-error" /></li>
           <li><a class="nav-link active" href="/">Home</a></li>
           <li>
-            <a class="nav-link" href="/addProject">Add Project</a>
-          </li>
-          <li>
             <a class="nav-link" href="/testimonials"
               >Testimonials</a
             >
@@ -33,7 +30,24 @@
         </ul>
       </div>
 
-      <div class="nav-right">
+      <div class="nav-right d-flex">
+        <ul class="navbarLog">
+          {{#if isLogin}}
+          <h3>Halo, {{user.userName}}</h3>
+          <form action="/logout" method="POST">
+            <button>Logout</button>
+          </form>
+          {{else}}
+          <li>
+            <a class="nav-link" href="/register">Register</a>
+          </li>
+          <li>
+            <a class="nav-link" href="/login"
+              >Login</a
+            >
+          </li>
+          {{/if}}
+        </ul>
         <button type="button" class="btn btn-dark"><a href="/contactMe">Contact Me</a></button>
       </div>
 
@@ -44,8 +58,16 @@
     <div class="hamburger-bars hide" id="hamburger-bars">
       <div class="countHam">
         <a href="/" class="hamburger active">Home</a>
-        <a href="/addProject" class="hamburger">Add Project</a>
         <a href="/testimonials" class="hamburger">Testimonials</a>
+        {{#if isLogin}}
+        <h3>Halo, {{user.userName}}</h3>
+          <form action="/logout" method="POST">
+            <button>Logout</button>
+          </form>
+        {{else}}
+        <a href="/register" class="hamburger">Register</a>
+        <a href="/login" class="hamburger">Login</a>
+        {{/if}}
         <button type="button" class="btn btn-dark"><a href="/contactMe" class="hamburger">Contact Me</a></button>
       </div>
     </div>
@@ -104,24 +126,28 @@
     </div>
 
     <!-- listItem -->
+  {{#if isLogin}}
   <a href="/addProject">
   <div class="d-flex justify-content-end"><button type="button" class="btn btn-dark mt-5 me-5 px-5">Add Project</button>
   </a>
   </div>
+  {{/if}}
     <h2>List My Project</h2>
     <div class="myProject" id="myProject">
     {{#each projects}}
       <div class="cardContent">
-        <img src="{{this.file}}" alt="" />
+        <img src="../uploads/{{file}}" alt="" />
         <div class="isi">
-          <div class="judul"><a href="/detailProject/{{id}}">{{this.nameProjects}}</a></div>
-          <div class="durasi">{{this.duration}}</div>
-          <p>{{this.description}}</p>
+          <div class="judul"><a href="/detailProject/{{id}}">{{nameProjects}}</a></div>
+          <div class="durasi">{{duration}}</div>
+          <div class="author">{{userName}}</div>
+          <p>{{description}}</p>
           <div class="technologi">
-            {{#each this.techbox}}
+            {{#each techbox}}
             <i class="fa-brands {{this}}"></i>
             {{/each}}
           </div>
+          {{#if ../isLogin}}
           <div class="button">
             <a href="/updateProject/{{id}}"><button type="button" class="btn btn-dark">Edit</button></a>
             <form onsubmit="deletePost({{id}})">
@@ -131,6 +157,7 @@
             <button class="btn btn-dark px-2">Delete</button>
             </form> --}}
           </div>
+          {{/if}}
         </div>
       </div>
     {{/each }}
