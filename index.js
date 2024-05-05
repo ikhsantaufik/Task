@@ -4,8 +4,9 @@ const formatTime = require("./util/formatTime.js");
 const port = 5000;
 const path = require("path");
 const config = require("./config/config.json");
-const { Sequelize, QueryTypes } = require("sequelize");
+const { Sequelize, QueryTypes, where } = require("sequelize");
 const sequelize = new Sequelize(config.development);
+const projectsModel = require("./models").tbProjects;
 
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "./views")); // hbs dimana
@@ -31,12 +32,9 @@ app.post("/", addProjectPost);
 app.post("/updateProject/:id", updateProjectPut);
 app.delete("/delete/:id", deleteProject);
 
-const projects = [];
-
 async function home(req, res) {
-  const query = 'SELECT * FROM "tbProjects"';
+  const query = `SELECT * FROM "tbProjects"`;
   const data = await sequelize.query(query, { type: QueryTypes.SELECT });
-  console.log("data sukses", data);
 
   res.render("index", { projects: data });
 }
@@ -60,20 +58,21 @@ function addProjectView(req, res) {
   res.render("addProject");
 }
 
-function updateProject(req, res) {
+async function updateProject(req, res) {
   const { id } = req.params;
-  // anbil data di array projects yg indexnya adalah id (projects adalah array)
-  const dataProject = projects[id];
-  dataProject.techbox.forEach((items) => {
-    // buat key baru dengan nama 'items' di dalam object dataProject (dataProject adalah object)
-    dataProject[items] = "checked";
+  const response = await projectsModel.findOne({
+    where: { id: id },
   });
-
-  dataProject.id = id;
-  res.render("updateProject", { projects: dataProject });
+  const Project = response.dataValues;
+  // anbil data di array projects yg indexnya adalah id (projects adalah array)
+  Project.techbox.forEach((items) => {
+    // buat key baru dengan nama 'items' di dalam object dataProject (dataProject adalah object)
+    Project[items] = "checked";
+  });
+  res.render("updateProject", { Project });
 }
 
-function addProjectPost(req, res) {
+async function addProjectPost(req, res) {
   const {
     projectName,
     startDate,
@@ -82,36 +81,49 @@ function addProjectPost(req, res) {
     techbox,
     // file,
   } = req.body;
-  projects.unshift({
-    projectName,
-    duration: formatTime.getDisDate(startDate, endDate),
-    startDate,
-    endDate,
-    description,
-    techbox: Array.isArray(techbox) ? techbox : [techbox],
-    file: "https://cdn-u1-gnfi.imgix.net/post/large-melatih-skill-keramahan-yang-tidak-hanya-sekadar-sifat1694664260.jpg?fit=crop&crop=faces%2Centropy&lossless=true&auto=compress%2Cformat&w=730&h=486",
-  });
+
+  const file =
+    "https://cdn-u1-gnfi.imgix.net/post/large-melatih-skill-keramahan-yang-tidak-hanya-sekadar-sifat1694664260.jpg?fit=crop&crop=faces%2Centropy&lossless=true&auto=compress%2Cformat&w=730&h=486";
+  const duration = formatTime.getDisDate(startDate, endDate);
+  const techs = Array.isArray(techbox) ? techbox : [techbox];
+  const techArray = "{" + techs.join(",") + "}";
+
+  const query = `INSERT INTO "tbProjects"("nameProjects", "duration", "startDate", "endDate", "description", "techbox", "file") VALUES ('${projectName}', '${duration}', '${startDate}', '${endDate}', '${description}', '${techArray}','${file}')`;
+  console.log("iniquery", query);
+
+  await sequelize.query(query, { type: QueryTypes.INSERT });
+
   res.redirect("/");
 }
 
-function updateProjectPut(req, res) {
-  const { id, projectName, startDate, endDate, description, techbox, file } =
+async function updateProjectPut(req, res) {
+  const { id, projectName, startDate, endDate, description, techbox } =
     req.body;
-  projects[id] = {
-    projectName,
-    duration: formatTime.getDisDate(startDate, endDate),
-    startDate,
-    endDate,
-    description,
-    techbox,
-    file: "https://cdn-u1-gnfi.imgix.net/post/large-melatih-skill-keramahan-yang-tidak-hanya-sekadar-sifat1694664260.jpg?fit=crop&crop=faces%2Centropy&lossless=true&auto=compress%2Cformat&w=730&h=486",
-  };
+
+  const duration = formatTime.getDisDate(startDate, endDate);
+  const techs = Array.isArray(techbox) ? techbox : [techbox];
+  const techArray = "{" + techs.join(",") + "}";
+
+  const query = `UPDATE "tbProjects" SET 
+  "nameProjects"='${projectName}', 
+  "startDate"='${startDate}', 
+      "endDate"='${endDate}', 
+      "duration"='${duration}', 
+      "description"='${description}', 
+      "techbox"='${techArray}'
+      WHERE "id" = ${id}`;
+
+  await sequelize.query(query, { type: QueryTypes.UPDATE });
+
   res.redirect("/");
 }
 
-function deleteProject(req, res) {
+async function deleteProject(req, res) {
   const { id } = req.params;
-  projects.splice(id, 1);
+  const query = `DELETE FROM "tbProjects" WHERE id=${id}`;
+  const data = await sequelize.query(query, { type: QueryTypes.DELETE });
+
+  data.splice(id, 1);
   res.redirect("/");
 }
 

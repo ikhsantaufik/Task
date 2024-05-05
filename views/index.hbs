@@ -114,8 +114,8 @@
       <div class="cardContent">
         <img src="{{this.file}}" alt="" />
         <div class="isi">
-          <div class="judul"><a href="/detailProject/{{@index}}">{{this.projectName}}</a></div>
-          <div class="durasi">{{duration}}</div>
+          <div class="judul"><a href="/detailProject/{{id}}">{{this.nameProjects}}</a></div>
+          <div class="durasi">{{this.duration}}</div>
           <p>{{this.description}}</p>
           <div class="technologi">
             {{#each this.techbox}}
@@ -123,8 +123,8 @@
             {{/each}}
           </div>
           <div class="button">
-            <a href="/updateProject/{{@index}}"><button type="button" class="btn btn-dark">Edit</button></a>
-            <form onsubmit="deletePost({{@index}})">
+            <a href="/updateProject/{{id}}"><button type="button" class="btn btn-dark">Edit</button></a>
+            <form onsubmit="deletePost({{id}})">
             <button class="btn btn-dark px-2">Delete</button>
             </form>
             {{!-- <form method="POST" action="/delete/{{index}}">
